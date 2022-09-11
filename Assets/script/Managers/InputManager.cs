@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class InputManager
 {
@@ -13,6 +14,10 @@ public class InputManager
     private bool _pressed = false;
     public void onUpdate()
     {
+        //Ui호출 시 조건 추가
+        if(EventSystem.current.IsPointerOverGameObject()) //지금 유아이 호출인지 아닌지 확인 가능
+            return;
+
         if(Input.anyKey && KeyAction != null)
             KeyAction.Invoke(); //특정 Key event 호출
 
