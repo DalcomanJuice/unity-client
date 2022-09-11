@@ -38,7 +38,7 @@ public class TestCollision : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        LayerTest();
+        //LayerTest();
     }
 
     void RayCastTest()
