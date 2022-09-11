@@ -42,12 +42,9 @@ public class CameraController : MonoBehaviour
             }
             else
             {
-                transform.position = _player.transform.position + _delta;   //카메라 위치 이동
-                transform.LookAt(_player.transform);        
+                transform.position = _player.transform.position + _delta; //카메라 위치 이동
+                transform.LookAt(_player.transform);
             }
-            
-            
-            
         }
     }
 
