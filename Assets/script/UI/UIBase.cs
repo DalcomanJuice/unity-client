@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class UIBase : MonoBehaviour
@@ -34,11 +35,32 @@ public class UIBase : MonoBehaviour
         return objects[idex] as T;
     }
 
-    Text GetText(int idx) {
+    protected Text GetText(int idx) {
         return Get<Text>(idx);
     }
 
-    Button GetButton(int idx) {
+    protected Button GetButton(int idx) {
         return Get<Button>(idx);
+    }
+
+    protected Image GetImages(int idx) 
+    {
+        return Get<Image>(idx);
+    }
+
+    public static void AddUIEvent(GameObject go, Action<PointerEventData> action, Define.UIEvent type = Define.UIEvent.Click)
+    {
+        UIEventHandler evt = Util.GetOrAddComponent<UIEventHandler>(go);
+        switch (type)
+        {
+            case Define.UIEvent.Click:
+                evt.OnPointerClickHandler -= action;
+                evt.OnPointerClickHandler += action;
+                break;
+            case Define.UIEvent.Drag:
+                evt.OnDrageHandler -= action;
+                evt.OnDrageHandler += action;
+                break;
+        }
     }
 }
