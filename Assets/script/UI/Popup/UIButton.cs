@@ -7,7 +7,7 @@ using UnityEngine.UI;
 using Object = UnityEngine.Object;
 using UnityEngine.EventSystems;
 
-public class UIButton : UIBase
+public class UIButton : UIPopup
 {    
     enum Texts
     {
