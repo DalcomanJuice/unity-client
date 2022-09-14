@@ -22,7 +22,9 @@ public class PlayerController : MonoBehaviour
 
         UIButton button = Managers.UI.ShowPopupUI<UIButton>();
 
-        Managers.UI.ClosePopupUI(button);
+            
+
+        
         /*Managers.Resource.Instantiate("UI/UIButton");   //Prefab을 불러서사용.*/
     }
 

@@ -32,23 +32,27 @@ public class UIButton : UIPopup
         ItemIcon,
     }
 
-    //리플렉션 기능을 사용한다.
     private void Start()
     {
+        Init();
+    }
+
+    public override void Init()
+    {
+        base.Init();
+
         Bind<Button>(typeof(Buttons));
         Bind<Text>(typeof(Texts));
         Bind<UnityEngine.GameObject>(typeof(GameObjects));
         Bind<Image>(typeof(Images));
         //Test 
-        
+
         GetButton((int)Buttons.PointButton).gameObject.AddUIEvent(onButtonClicked);
 
         UnityEngine.GameObject go = GetImages((int)Images.ItemIcon).gameObject;
-        AddUIEvent(go, (PointerEventData data) => { go.transform.position = data.position; }, Define.UIEvent.Drag);        
-
-        
+        AddUIEvent(go, (PointerEventData data) => { go.transform.position = data.position; }, Define.UIEvent.Drag);
     }
-    
+
     private int _score = 0;
     
     public void onButtonClicked(PointerEventData data)
