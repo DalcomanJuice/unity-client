@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour
         Managers.Input.MouseAction += onMouseClicked;
 
         /*Managers.Resource.Instantiate("UI/UIButton");   //Prefab을 불러서사용.*/
+
+        Managers.UI.ShowSceneUI<UI_Inven>();
     }
 
     // Update is called once per frame
