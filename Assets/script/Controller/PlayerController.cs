@@ -20,11 +20,6 @@ public class PlayerController : MonoBehaviour
         Managers.Input.MouseAction -= onMouseClicked;
         Managers.Input.MouseAction += onMouseClicked;
 
-        UIButton button = Managers.UI.ShowPopupUI<UIButton>();
-
-            
-
-        
         /*Managers.Resource.Instantiate("UI/UIButton");   //Prefab을 불러서사용.*/
     }
 
